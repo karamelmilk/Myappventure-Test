@@ -12,11 +12,9 @@ class Test_a_Login(unittest.TestCase):
     def test_a_Login_Failed(self):
         driver = self.driver
         driver.get("https://www.saucedemo.com/")
-        time.sleep(3)
+       
         driver.find_element(By.ID,"user-name").send_keys("khansa")
-        time.sleep(1)
         driver.find_element(By.ID,"password").send_keys(12345678)
-        time.sleep(1)
         driver.find_element(By.ID,"login-button").click()
         time.sleep(3)
 
@@ -26,11 +24,9 @@ class Test_a_Login(unittest.TestCase):
     def test_b_Login_Successful(self):
         driver = self.driver
         driver.get("https://www.saucedemo.com/")
-        time.sleep(3)
+        
         driver.find_element(By.ID,"user-name").send_keys("standard_user")
-        time.sleep(1)
         driver.find_element(By.ID,"password").send_keys("secret_sauce")
-        time.sleep(1)
         driver.find_element(By.ID,"login-button").click()
         time.sleep(3)
         
@@ -39,11 +35,9 @@ class Test_a_Login(unittest.TestCase):
     def test_c_Login_EmptyUser(self):
         driver = self.driver
         driver.get("https://www.saucedemo.com/")
-        time.sleep(3)
+
         driver.find_element(By.ID,"user-name").send_keys("")
-        time.sleep(1)
         driver.find_element(By.ID,"password").send_keys("secret_sauce")
-        time.sleep(1)
         driver.find_element(By.ID,"login-button").click()
         time.sleep(3)
 
@@ -53,11 +47,9 @@ class Test_a_Login(unittest.TestCase):
     def test_d_Login_EmptyPass(self):
         driver = self.driver
         driver.get("https://www.saucedemo.com/")
-        time.sleep(3)
+
         driver.find_element(By.ID,"user-name").send_keys("standard_user")
-        time.sleep(1)
         driver.find_element(By.ID,"password").send_keys("")
-        time.sleep(1)
         driver.find_element(By.ID,"login-button").click()
         time.sleep(3)
 
@@ -72,15 +64,12 @@ class Test_b_AddtoCart(unittest.TestCase):
     def test_a_AddtoCart(self):
         driver = self.driver
         driver.get("https://www.saucedemo.com/")
-        time.sleep(3)
+        
         driver.find_element(By.ID,"user-name").send_keys("standard_user")
-        time.sleep(1)
         driver.find_element(By.ID,"password").send_keys("secret_sauce")
-        time.sleep(1)
         driver.find_element(By.ID,"login-button").click()
-        time.sleep(1)
         driver.find_element(By.CSS_SELECTOR,"#add-to-cart-sauce-labs-backpack").click()
-        time.sleep(1)
+        time.sleep(3)
 
         response_data = driver.find_element(By.CLASS_NAME,"shopping_cart_badge").text
         self.assertEqual(response_data, "1")
